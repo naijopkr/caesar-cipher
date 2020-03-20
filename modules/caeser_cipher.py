@@ -1,21 +1,5 @@
-from string import (
-    ascii_lowercase,
-    ascii_uppercase,
-    digits,
-    punctuation,
-)
-
-def get_char_type(char: str):
-    if char in ascii_lowercase:
-        return ascii_lowercase
-
-    if char in ascii_uppercase:
-        return ascii_uppercase
-
-    if char in digits:
-        return digits
-
-    raise ValueError
+from modules.string_type import get_char_type
+from string import punctuation
 
 def cipher(message: str, key: int):
     output = ''
@@ -38,15 +22,3 @@ def encrypt(message: str, key: int):
 
 def decrypt(message: str, key: int):
     return cipher(message, -key)
-
-
-if __name__ == '__main__':
-    message = input('Insert the message to be encrypted: ')
-    key = int(input('Insert the key: '))
-    encrypted_message = encrypt(message, key)
-    print(encrypted_message)
-    decrypted_message = decrypt(encrypted_message, key)
-    print(decrypted_message)
-
-    success = message == decrypted_message
-    print('Success!' if success else 'Failed!')
