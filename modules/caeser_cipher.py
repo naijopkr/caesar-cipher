@@ -1,26 +1,34 @@
-# TODO: check the string module docs to solve this
+from string import (
+    ascii_lowercase,
+    ascii_uppercase,
+    digits,
+    punctuation,
+)
+
+def get_char_type(char: str):
+    if char in ascii_lowercase:
+        return ascii_lowercase
+
+    if char in ascii_uppercase:
+        return ascii_uppercase
+
+    if char in digits:
+        return digits
+
+    raise ValueError
+
 def encrypt(message: str, key: int):
+
     output = ''
     for letter in message:
-        char_code = ord(letter)
-
-        if char_code > 90 or char_code < 0:
-            raise ValueError
-
-        if char_code == 32:
-            output += chr(char_code)
+        if letter in punctuation or letter == ' ':
+            output += letter
             continue
 
-        if char_code < 48
-            or (char_code > 57 and char_code < 65)
-            or (char_code > 90 and char_code < 97):
-            char_type = 'symbol'
-        elif char_code < 58:
-            char_type = 'number'
-        elif char_code < 91:
-            char_type: 'capital_letter'
+        char_list = get_char_type(letter)
+        char_index = (char_list.index(letter) + key) % len(char_list)
 
-        output += chr(32 + (char_code + key) % 91)
+        output += char_list[char_index]
 
     print(output)
 
