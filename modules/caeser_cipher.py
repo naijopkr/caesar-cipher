@@ -17,9 +17,9 @@ def get_char_type(char: str):
 
     raise ValueError
 
-def encrypt(message: str, key: int):
-
+def cipher(message: str, key: int):
     output = ''
+
     for letter in message:
         if letter in punctuation or letter == ' ':
             output += letter
@@ -30,9 +30,23 @@ def encrypt(message: str, key: int):
 
         output += char_list[char_index]
 
-    print(output)
+    return output
+
+def encrypt(message: str, key: int):
+    return cipher(message, key)
+
+
+def decrypt(message: str, key: int):
+    return cipher(message, -key)
+
 
 if __name__ == '__main__':
     message = input('Insert the message to be encrypted: ')
     key = int(input('Insert the key: '))
-    encrypt(message, key)
+    encrypted_message = encrypt(message, key)
+    print(encrypted_message)
+    decrypted_message = decrypt(encrypted_message, key)
+    print(decrypted_message)
+
+    success = message == decrypted_message
+    print('Success!' if success else 'Failed!')
