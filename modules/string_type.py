@@ -4,15 +4,16 @@ from string import (
     digits,
     punctuation,
 )
+import re
 
 def get_char_type(char: str):
-    if char in ascii_lowercase:
+    if re.search(char, ascii_lowercase):
         return ascii_lowercase
 
-    if char in ascii_uppercase:
+    if re.search(char, ascii_uppercase):
         return ascii_uppercase
 
-    if char in digits:
+    if re.search(char, digits):
         return digits
 
     raise ValueError

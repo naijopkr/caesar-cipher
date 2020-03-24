@@ -1,11 +1,12 @@
 from modules.string_type import get_char_type
 from string import punctuation
+import re
 
 def cipher(message: str, key: int):
     output = ''
 
     for letter in message:
-        if letter in punctuation or letter == ' ':
+        if re.search(letter, punctuation) or re.match(r'\s', letter):
             output += letter
             continue
 
