@@ -26,7 +26,7 @@ $ python . -i test.txt -o test_output.txt -k <key_number> // eg: 3
 
 5. Test decryption:
 ```
-$ python . -i test_output.txt -o test_decrypt.txt -k <key_number> // same used on encryption
+$ python . -d -i test_output.txt -o test_decrypt.txt -k <key_number> // same used on encryption
 ```
 
 Check out if the test.txt and the test_decrypt.txt are equal. Check out if the test_output.txt is encrypted. If you find something wrong, let me know. Have fun!
