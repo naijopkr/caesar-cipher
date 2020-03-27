@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from modules.caeser_cipher import encrypt, decrypt
+from caesar_cipher import encrypt, decrypt
 from unidecode import unidecode
 import sys, getopt
 
@@ -14,8 +14,6 @@ def help():
     print()
 
 def main(argv):
-    # TODO: GET THE ARGS AND OPTIONS RIGHT
-    # https://www.tutorialspoint.com/python/python_command_line_arguments.htm
     input_file = ''
     output_file = 'output.txt'
     key = 0

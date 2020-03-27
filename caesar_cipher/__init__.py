@@ -1,4 +1,4 @@
-from modules.string_type import get_char_type
+from string_type import get_char_type
 from string import punctuation
 import re
 
